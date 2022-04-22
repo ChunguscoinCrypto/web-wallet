@@ -2,9 +2,9 @@ $(document).ready(function() {
 
 	/* open wallet code */
 
-	var explorer_tx = "https://kmdexplorer.io/tx/"
-	var explorer_addr = "https://kmdexplorer.io/address/"
-	var explorer_block = "https://kmdexplorer.io/block/"
+	var explorer_tx = "https://explorer.chungycoin.com/tx/"
+	var explorer_addr = "https://explorer.chungycoin.com/address/"
+	var explorer_block = "https://explorer.chungycoin.com/block/"
 
 	var wallet_timer = false;
 
@@ -201,7 +201,7 @@ $(document).ready(function() {
 
 					if (status == 200) {
 					   var obj = $.parseJSON(data);
-                                           $("#walletSendConfirmStatus").removeClass('hidden').addClass('alert-success').html('txid: <a href="https://kmdexplorer.io/tx/'+ obj.txid +'" target="_blank">'+ obj.txid +'</a>');
+                                           $("#walletSendConfirmStatus").removeClass('hidden').addClass('alert-success').html('txid: <a href="https://explorer.chungycoin.com/tx/'+ obj.txid +'" target="_blank">'+ obj.txid +'</a>');
 					} else {
 						$("#walletSendConfirmStatus").removeClass('hidden').addClass('alert-danger').html(unescape(data).replace(/\+/g,' '));
 						$("#walletSendFailTransaction").removeClass('hidden');
@@ -213,7 +213,7 @@ $(document).ready(function() {
 
 				}, signed);
 			} else {
-				$("#walletSendConfirmStatus").removeClass("hidden").addClass('alert-danger').html("You have a confirmed balance of "+dvalue+" KMD unable to send "+total+" KMD").fadeOut().fadeIn();
+				$("#walletSendConfirmStatus").removeClass("hidden").addClass('alert-danger').html("You have a confirmed balance of "+dvalue+" CHUNG unable to send "+total+" CHUNG").fadeOut().fadeIn();
 				thisbtn.attr('disabled',false);
 			}
 
@@ -315,9 +315,9 @@ $(document).ready(function() {
 
 			if(parseInt(data)!=NaN){
 				var v = data/100000000;
-				$("#walletBalance").html(v+" KMD").attr('rel',v).fadeOut().fadeIn();
+				$("#walletBalance").html(v+" CHUNG").attr('rel',v).fadeOut().fadeIn();
 			} else {
-				$("#walletBalance").html("0.00 KMD").attr('rel',v).fadeOut().fadeIn();
+				$("#walletBalance").html("0.00 CHUNG").attr('rel',v).fadeOut().fadeIn();
 			}
 
 
@@ -1114,7 +1114,7 @@ $(document).ready(function() {
 
 		$.ajax ({
 			type: "GET",
-			url: "https://kmdexplorer.io/insight-api-komodo/" + "addr/" + redeem.addr + "/utxo",
+			url: "https://explorer.chungycoin.com/insight-api-komodo/" + "addr/" + redeem.addr + "/utxo",
 			error: function() {                                                            
 				$("#redeemFromStatus").removeClass('hidden').html('<span class="glyphicon glyphicon-exclamation-sign"></span> Unexpected error, unable to retrieve unspent outputs!');
 			},
